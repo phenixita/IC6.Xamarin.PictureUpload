@@ -1,15 +1,12 @@
-﻿using System;
-using System.Globalization;
-using System.IO;
+﻿using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace IC6.Xamarin.PictureUpload
 {
-
-    internal class ApiService : IApiContext
+    internal class ApiService : IApiService
     {
-        string url = "http://localhost:3573/api/image/";
+        private string url = "http://localhost:3573/api/image/";
 
         public async Task<bool> UploadImageAsync(Stream image, string fileName)
         {
@@ -23,8 +20,6 @@ namespace IC6.Xamarin.PictureUpload
                 var response = await client.PostAsync(url, formData);
                 return response.IsSuccessStatusCode;
             }
-
         }
     }
 }
-

@@ -26,7 +26,6 @@ namespace IC6.Xamarin.PictureUpload.UWP
             openPicker.FileTypeFilter.Add(".jpg");
             openPicker.FileTypeFilter.Add(".jpeg");
             openPicker.FileTypeFilter.Add(".png");
-            openPicker.FileTypeFilter.Add(".exe");
 
             // Get a file and return a Stream
             StorageFile storageFile = await openPicker.PickSingleFileAsync();

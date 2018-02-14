@@ -12,7 +12,7 @@ namespace IC6.Xamarin.PictureUpload.Droid
     {
         
 
-        public Task<Stream> GetImageStreamAsync()
+        public Task<FileStreamToUpload> GetImageStreamAsync()
         {
             // Define the Intent for getting images
             Intent intent = new Intent();
@@ -28,7 +28,7 @@ namespace IC6.Xamarin.PictureUpload.Droid
                 MainActivity.PickImageId);
 
             // Save the TaskCompletionSource object as a MainActivity property
-            activity.PickImageTaskCompletionSource = new TaskCompletionSource<Stream>();
+            activity.PickImageTaskCompletionSource = new TaskCompletionSource<FileStreamToUpload>();
 
             // Return Task object
             return activity.PickImageTaskCompletionSource.Task;

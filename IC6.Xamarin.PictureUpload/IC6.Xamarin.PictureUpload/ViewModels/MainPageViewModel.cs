@@ -12,7 +12,7 @@ namespace IC6.Xamarin.PictureUpload.ViewModels
 
         private bool _uploadStatus;
 
-        public MainPageViewModel(IImagePicker imagePicker, IApiContext httpService)
+        public MainPageViewModel(IImagePicker imagePicker, IApiService httpService)
         {
             _imagePickerSvc = imagePicker ?? throw new ArgumentNullException(nameof(imagePicker));
             _apiSvc = httpService ?? throw new ArgumentNullException(nameof(httpService));
@@ -20,7 +20,7 @@ namespace IC6.Xamarin.PictureUpload.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public IApiContext _apiSvc { get; }
+        public IApiService _apiSvc { get; }
         public Command UploadImage
         {
             get
