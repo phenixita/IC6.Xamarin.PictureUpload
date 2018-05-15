@@ -22,7 +22,15 @@ namespace IC6.Xamarin.WebApi.Controllers
         [HttpPost]
         public async Task Post(IFormFile file)
         {
+            if (string.IsNullOrWhiteSpace(_environment.WebRootPath))
+            {
+                _environment.WebRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+            }
+
             var uploads = Path.Combine(_environment.WebRootPath, "uploads");
+
+            if (!Directory.Exists(uploads)) Directory.CreateDirectory(uploads);
+
             if (file.Length > 0)
             {
                 using (var fileStream = new FileStream(Path.Combine(uploads, file.FileName), FileMode.Create))
