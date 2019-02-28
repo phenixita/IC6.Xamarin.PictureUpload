@@ -8,7 +8,7 @@ namespace IC6.Xamarin.PictureUpload
     internal class ApiService : IApiService
     {
 
-        private string url = "http://10.9.2.2:3574/api/image/";
+        private string url = "http://10.0.2.2:3574/api/image/";
 
         public async Task<bool> UploadImageAsync(Stream image, string fileName)
         {
@@ -20,7 +20,7 @@ namespace IC6.Xamarin.PictureUpload
 
                 try
                 {
-                    await client.GetAsync("http://10.9.2.2:3574/api/values/");
+                    await client.GetAsync("http://10.0.2.2:3574/api/values/");
                 } catch (Exception e)
                 {
                     return false;
