@@ -17,15 +17,6 @@ namespace IC6.Xamarin.PictureUpload
             fileStreamContent.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("form-data") { Name = "file", FileName = fileName };
             fileStreamContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
             using (var client = new HttpClient())
-
-                try
-                {
-                    await client.GetAsync("http://10.0.2.2:3574/api/values/");
-                } catch (Exception e)
-                {
-                    return false;
-                }
-            using (var client = new HttpClient())
             using (var formData = new MultipartFormDataContent())
             {
                 formData.Add(fileStreamContent);
